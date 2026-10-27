@@ -1,84 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sathira Gamage</title>
-    <meta name="description" content="Personal Website of Sathira Gamage">
-    <meta name="keywords" content="sathira gamage, sathira, gamage, programmer portfolio, sri lanka, sathirass, sathira gamage portfolio, portfolio, frontend, webdeveloping">
-    <meta name="author" content="Sathira Gamage">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sathira Gamage | Concept Developer & Creative Visual Artist</title>
+<meta name="description" content="Sathira Gamage is a concept developer and creative visual artist from Sri Lanka.">
+<meta name="author" content="Sathira Gamage">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--white:#fff;--gray:#8a8a8a;--display:'Syne',system-ui,sans-serif;--body:'Inter Tight',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--body);font-size:1.08rem;line-height:1.6}
+img{max-width:100%;display:block}
+main{overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:3px solid currentColor;outline-offset:4px}
+.wrap{width:min(1180px,92%);margin:0 auto}
+section{padding:7rem 0}
+.dark{background:var(--black);color:var(--white);--line:#2b2b2b;--mute:#a0a0a0}
+.light{background:var(--white);color:var(--black);--line:#d4d4d4;--mute:#575757}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1;letter-spacing:-.03em}
+h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:800}
+.lead{color:var(--mute);max-width:54ch;margin:1.2rem 0 0}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:var(--black);border-bottom:1px solid #2b2b2b}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.15rem}
+nav{display:flex;gap:1.8rem;align-items:center}
+nav a{text-decoration:none;font-size:.95rem;font-weight:500;opacity:.75}
+nav a:hover{opacity:1}
+nav a.pill{opacity:1;background:var(--white);color:var(--black);padding:.5rem 1.1rem;border-radius:999px;font-weight:600}
+@media(max-width:760px){nav a:not(.pill){display:none}}
+
+/* Hero */
+.hero{padding:5rem 0 4rem}
+.name{font-size:clamp(3.6rem,15.5vw,13.5rem);font-weight:800;letter-spacing:-.05em;line-height:.88}
+.name span{display:block}
+.name .outline{color:transparent;-webkit-text-stroke:2px var(--white)}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--line)}
+.roles h2{font-size:clamp(1.6rem,3.2vw,2.6rem)}
+.roles p{color:var(--mute);margin:.8rem 0 0;max-width:42ch}
+.cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
+.btn{display:inline-block;font:inherit;font-weight:600;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none;cursor:pointer;border:2px solid currentColor;background:none;color:inherit}
+.btn.solid{background:var(--white);color:var(--black);border-color:var(--white)}
+.btn:hover{transform:translateY(-2px)}
+.light .btn.solid{background:var(--black);color:var(--white);border-color:var(--black)}
+@media(max-width:760px){.roles{grid-template-columns:1fr;gap:2rem}}
+
+/* Image slots */
+.slot{position:relative;overflow:hidden;background:repeating-linear-gradient(135deg,#1a1a1a 0 14px,#111 14px 28px);display:flex;align-items:flex-end;padding:1rem;font-family:var(--display);font-weight:800;font-size:1.25rem;line-height:1.05;color:var(--white)}
+.light .slot{background:repeating-linear-gradient(135deg,#ececec 0 14px,#f6f6f6 14px 28px);color:var(--black)}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* About */
+.split{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:center}
+.split .slot{aspect-ratio:4/5}
+.split p{margin:1.3rem 0 0}
+.facts{display:flex;gap:3rem;margin-top:2.2rem;flex-wrap:wrap}
+.facts b{display:block;font:800 2.6rem var(--display);letter-spacing:-.03em}
+.facts div{font-size:.9rem;color:var(--mute)}
+@media(max-width:820px){.split{grid-template-columns:1fr;gap:2.5rem}.split .slot{max-width:380px}}
+
+/* Work */
+.proj{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:3rem;padding:5rem 0 1rem;margin-top:4rem;border-top:1px solid var(--line)}
+.proj-head{position:sticky;top:96px;align-self:start;display:flex;gap:1.6rem;align-items:flex-start}
+.proj h3{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.proj-meta{color:var(--mute);font-size:1rem;max-width:20ch;padding-top:.3rem}
+.proj-meta b{display:block;color:var(--white);font-size:1.1rem;margin-bottom:.3rem}
+.wall{column-count:2;column-gap:1.2rem}
+.card{display:block;width:100%;break-inside:avoid;margin:0 0 1.2rem;padding:0;border:0;background:none;color:inherit;cursor:zoom-in}
+.card{position:relative;transition:opacity .3s}
+.card img{display:block;width:100%;height:auto;transition:transform .4s}
+.card::before,.card::after{content:"";position:absolute;width:22px;height:22px;opacity:0;pointer-events:none;border:0 solid var(--white);transition:width .4s ease,height .4s ease,opacity .25s}
+.card::before{top:-9px;left:-9px;border-top-width:2px;border-left-width:2px}
+.card::after{bottom:-9px;right:-9px;border-bottom-width:2px;border-right-width:2px}
+.card:hover::before,.card:hover::after,.card:focus-visible::before,.card:focus-visible::after{opacity:1;width:calc(100% + 18px);height:calc(100% + 18px)}
+.card:hover img,.card:focus-visible img{transform:scale(1.015)}
+.card:focus-visible{outline:none}
+.wall:hover .card:not(:hover){opacity:.4}
+.ph{aspect-ratio:4/5;display:flex;align-items:flex-end;padding:1rem;text-align:left;font:800 1rem var(--display);background:repeating-linear-gradient(135deg,#1a1a1a 0 14px,#111 14px 28px)}
+@media(max-width:860px){.proj{grid-template-columns:1fr;gap:2rem}.proj-head{position:static;flex-direction:column;gap:1rem}.proj h3{writing-mode:horizontal-tb;transform:none;white-space:normal;font-size:clamp(2.4rem,10vw,3.6rem)}.proj-meta{max-width:34ch}}
+@media(max-width:520px){.wall{column-count:1}}
+dialog{border:1px solid #444;border-radius:12px;padding:1rem;background:var(--black);color:var(--white);width:min(820px,94vw)}
+dialog::backdrop{background:#000e}
+#viewer{min-height:40vh;display:grid;place-items:center;background:#111;border-radius:8px;overflow:hidden;font-family:var(--display);font-weight:800;color:#666}
+#viewer img{max-width:100%;max-height:76vh;width:auto;height:auto;object-fit:contain}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.9rem;flex-wrap:wrap}
+.bar span{color:var(--mute);font-size:.95rem}
+.bar .btn{padding:.5rem 1.1rem}
+.slot.loaded{aspect-ratio:auto!important;padding:0!important;display:block!important;background:none!important}
+.slot.loaded img{position:static!important;height:auto!important;width:100%}
+
+/* Achievements */
+.ach{margin-top:3rem;border-top:2px solid var(--black)}
+.row{display:grid;grid-template-columns:150px 1fr 220px;gap:2rem;align-items:center;padding:1.7rem 0;border-bottom:1px solid var(--line)}
+.row.noimg{grid-template-columns:150px 1fr}
+.row .res{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.row h3{font-size:1.5rem;letter-spacing:-.02em}
+.row p{margin:.4rem 0 0;color:var(--mute)}
+.row .slot{aspect-ratio:16/10;padding:.6rem;font-size:.9rem}
+@media(max-width:700px){.row,.row.noimg{grid-template-columns:1fr;gap:.7rem}.row .slot{max-width:280px}}
+
+/* Approach */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:3rem;margin-top:3rem}
+.cols div{border-top:1px solid var(--white);padding-top:1.4rem}
+.cols h3{font-size:1.5rem;margin-bottom:.7rem}
+.cols p{margin:0;color:var(--mute)}
+
+/* Contact */
+.contact h2{font-size:clamp(2.8rem,9vw,8rem);letter-spacing:-.05em;line-height:.92}
+.contact .lead{margin:1.6rem 0 2.2rem}
+.links{display:flex;flex-wrap:wrap;gap:.8rem}
+.links a{border:2px solid var(--black);border-radius:999px;padding:.6rem 1.3rem;text-decoration:none;font-weight:600}
+.links a:hover{background:var(--black);color:var(--white)}
+footer{padding:1.6rem 0;font-size:.85rem;color:#8a8a8a}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav icons">
-            <div class="icon red"><img src="img/icon-red.png" alt=""></div>
-            <div class="icon yellow"><img src="img/icon-yellow.png" alt=""></div>
-            <div class="icon green"><img src="img/icon-green.png" alt=""></div>
-        </div>
 
-        <div class="main-btn" style="display: flex; margin-right: 0; width: 100%;">
-            <div class="container-2">
-                <div class="main text-margin">
-                    <div id="section-1">
-                        <h1><span style="color: #569CD6;">const</span> <span style="color: #46B7F8;">person</span> <span style="color: white;">=</span> <span style="color: #E1A117;">{</span></h1>
-                        <div class="text-margin-2">
-                            <h1><span style="color: #9CDCFE;">firstName : </span><span style="color: #CE9178;">"Sathira"</span><span style="color: white;">,</span></h1>
-                            <h1><span style="color: #9CDCFE;">lastName : </span><span style="color: #CE9178;">"Gamage"</span><span style="color: white;">,</span></h1>
-                            <h1><span style="color: #9CDCFE;">age : </span><span style="color: #B5CEA8;">16</span></h1>
-                        </div>
-                        <h1><span style="color: #E1A117;">}</span></h1>
-                    </div>
-                </div>
-            
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Sathira Gamage</a>
+    <nav>
+      <a href="#about">About</a><a href="#work">Work</a><a href="#achievements">Achievements</a><a href="#approach">Approach</a>
+      <a class="pill" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-
-
-        <div class="main text-margin">
-            <div id="section-2">
-                <h1><span style="color: #46B7F8;">person</span><span style="color: white;">.</span><span style="color: #9CDCFE;">social</span><span style="color: #E1A117;"><span style="color: white;"> =</span> {</span></h1>
-                <div class="text-margin-2">
-                    <h1><img src="img/linkedin.png" alt="" class="social-logo"><span style="color: white;"> : </span><span style="color: #CE9178;"><a href="https://www.linkedin.com/in/sathira-gamage/">linkedin</a></span><span style="color: white;">,</span></h1>
-
-                    <h1><img src="img/github.png" alt="" class="social-logo"><span style="color: white;"> : </span><span style="color: #CE9178;"><a href="https://github.com/SathiraG">Github</a></span><span style="color: white;">,</span></h1>
-
-                    <h1><img src="img/x.png" alt="" class="social-logo"><span style="color: white;"> : </span><span style="color: #CE9178;"><a href="https://twitter.com/SathiraGamage">X</a></span><span style="color: white;">,</span></h1>
-
-                    <h1><img src="img/discord.png" alt="" class="social-logo"><span style="color: white;"> : </span><span style="color: #CE9178;"><a href="https://discordapp.com/users/650220261785731083">Discord</a></span><span style="color: white;">,</span></h1>
-
-                    <h1><img src="img/insta.png" alt="" class="social-logo"><span style="color: white;"> : </span><span style="color: #CE9178;"><a href="https://www.instagram.com/sathira.ss/">Instagram</a></span></h1>
-                </div>
-                <h1><span style="color: #E1A117;">}</span></h1>
-            </div>
-        </div>
-
-        <div class="main text-margin">
-            <div id="section-3">
-                <h1><span style="color: #46B7F8;">person</span><span style="color: white;">.</span><span style="color: #9CDCFE;">projects</span><span style="color: #E1A117;"><span style="color: white;"> =</span> {</span></h1>
-                <div class="text-margin-2">
-                    <h1><span style="color: white;">Coming Soon!</span></h1>
-                </div>
-                <h1><span style="color: #E1A117;">}</span></h1>
-            </div>
-        </div>
+<main id="top">
+<!-- HERO -->
+<section class="hero dark">
+  <div class="wrap">
+    <h1 class="name"><span>Sathira</span><span class="outline">Gamage</span></h1>
+    <div class="roles">
+      <div><h2>Concept developer</h2><p>I start with the idea: the angle, the story and the feeling a campaign should leave behind.</p></div>
+      <div><h2>Creative visual artist</h2><p>Then I give that idea a look people remember, from a single poster to a full visual world.</p></div>
     </div>
-</div>
+    <div class="cta"><a class="btn solid" href="#work">See the work</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+</section>
 
-        <div class="nav-bottom">
-            <h3 onclick="scrollToY(0)">Person</h3>
-            <h3 onclick="scrollToY(650)">Social</h3>
-            <h3 onclick="scrollToY(3000)">Projects</h3>
-        </div>
-
+<!-- ABOUT -->
+<section id="about" class="light">
+  <div class="wrap split">
+    <div class="slot">Your photo: img/me.jpg<img src="img/me.jpeg" alt="Portrait of Sathira Gamage" onerror="this.remove()" onload="var p=this.parentNode;p.classList.add('loaded');p.firstChild.remove()"></div>
+    <div>
+      <h2>Ideas first, then the visuals</h2>
+      <p>I’m Sathira, a creative from Sri Lanka. I’m drawn to the moment an idea becomes something you can see, and I care about making that moment clear and a little unexpected.</p>
+      <p>Replace this paragraph with your own story: what inspires you, how you work, and what kind of team you want to join.</p>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </div>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js" integrity="sha512-UyX8JsMsNRW1cYl8BoxpcamonpwU2y7mSTsN0Z52plp7oKo1u92Xqfpv6lOlTyH3yiMXK+gU1jw0DVCsPTfKew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- WORK -->
+<section id="work" class="dark">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="lead">Projects made for real clients. Select any piece to view it at full size.</p>
+    <div id="projects"></div>
+  </div>
+</section>
 
-    <script src="scroll.js"></script>
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="light">
+  <div class="wrap">
+    <h2>Achievements</h2>
+    <p class="lead">Wins and placements from competitions across Sri Lanka.</p>
+    <div class="ach" id="ach"></div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- APPROACH -->
+<section id="approach" class="dark">
+  <div class="wrap">
+    <h2>How I can help a team</h2>
+    <div class="cols">
+      <div><h3>Find the concept</h3><p>Turn a brief into one clear idea a campaign can be built around.</p></div>
+      <div><h3>Shape the look</h3><p>Choose the visual language so every piece feels like it belongs together.</p></div>
+      <div><h3>Create the pieces</h3><p>Posters, social content and campaign visuals made for the platform they’ll live on.</p></div>
+      <div><h3>Keep it consistent</h3><p>Stay true to a brand while still giving it a fresh edge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="light contact">
+  <div class="wrap">
+    <h2>Let’s build something people remember.</h2>
+    <p class="lead">Open to internships and junior roles in digital marketing.</p>
+    <div class="links">
+      <a href="mailto:you@example.com">Email</a>
+      <a href="https://www.linkedin.com/in/sathira-gamage/">LinkedIn</a>
+      <a href="https://www.instagram.com/sathira.ss/">Instagram</a>
+      <a href="https://twitter.com/SathiraGamage">X</a>
+      <a href="https://github.com/SathiraG">GitHub</a>
+      <a href="https://discordapp.com/users/650220261785731083">Discord</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="dark"><div class="wrap">© 2026 Sathira Gamage</div></footer>
+
+<dialog id="dlg"><div id="viewer"></div><div class="bar"><button class="btn" id="prev">Previous</button><span id="cap"></span><button class="btn" id="next">Next</button><button class="btn solid" id="close">Close</button></div></dialog>
+
+<script>
+// Images are found automatically as .jpg, .png, .webp or .jpeg.
+var EXT=['jpg','png','webp','jpeg'];
+function pic(base,alt,done){var i=new Image(),n=0;i.alt=alt;
+  i.onload=function(){done&&done(i)};
+  i.onerror=function(){n++;if(n<EXT.length){i.src=base+'.'+EXT[n]}else{i.remove()}};
+  i.src=base+'.'+EXT[0];return i}
+
+// Projects: images live in img/projects/ named  base + number  (for example adscrab-1.jpg)
+var projects=[
+ {name:'AdScrab',id:'adscrab',role:'Social media posts',note:'A selection of posts created for the marketing agency AdScrab.',base:'img/projects/adscrab',n:5},
+ {name:'Lanka Express',id:'lanka-express',role:'Posters',note:'Posters created for a cargo delivery company.',base:'img/projects/lankaexpress',n:5},
+ {name:'Aeroglidex',id:'aeroglidex',role:'Social media posts',note:'Posts created together with Roger.',base:'img/projects/aeroglidex',n:2},
+ {name:'Glow Cosmetics',id:'glow-cosmetics',role:'Logo creation',note:'Logo work for a cosmetics brand.',base:'img/projects/glowcosmetics',n:2},
+ {name:'Travel Sri Lanka',id:'travel-sri-lanka',role:'Logo design and posters',note:'A logo design project with supporting posters.',base:'img/projects/travelsrilanka',n:2}
+];
+var box=document.getElementById('projects'),dlg=document.getElementById('dlg'),cur={p:0,i:1};
+projects.forEach(function(p,pi){
+  var s=document.createElement('article');s.className='proj';s.id=p.id;
+  s.innerHTML='<div class="proj-head"><h3>'+p.name+'</h3><div class="proj-meta"><b>'+p.role+'</b>'+p.note+'</div></div><div class="wall"></div>';
+  var wall=s.querySelector('.wall');
+  for(let i=1;i<=p.n;i++){
+    let c=document.createElement('button');c.className='card';c.setAttribute('aria-label','View '+p.name+' '+i);
+    let ph=document.createElement('div');ph.className='ph';ph.textContent=p.name+' '+i;
+    c.appendChild(ph);
+    c.appendChild(pic(p.base+i,p.name+' '+i,function(){ph.remove()}));
+    c.onclick=function(){cur={p:pi,i:i};show();dlg.showModal()};
+    wall.appendChild(c);
+  }
+  box.appendChild(s);
+});
+
+// Viewer (shows the full image, never cropped)
+function show(){
+  var p=projects[cur.p],v=document.getElementById('viewer');
+  v.innerHTML='<span>'+p.name+' '+cur.i+'</span>';
+  v.appendChild(pic(p.base+cur.i,p.name+' '+cur.i,function(){var t=v.querySelector('span');t&&t.remove()}));
+  document.getElementById('cap').textContent=p.name;
+}
+function step(d){var n=projects[cur.p].n;cur.i=(cur.i-1+d+n)%n+1;show()}
+document.getElementById('next').onclick=function(){step(1)};
+document.getElementById('prev').onclick=function(){step(-1)};
+document.getElementById('close').onclick=function(){dlg.close()};
+dlg.addEventListener('keydown',function(e){if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+
+// Achievements: images live in img/achievments/  (f = file name without extension)
+var wins=[
+ {r:'Winners',t:'SLIIT CodeFest 2023',d:'CodeExtreme',f:'codefest'},
+ {r:'Winners',t:'Incendium’23',d:'Issued by the Entrepreneur’s Club of Ananda College',f:'incendium'},
+ {r:'Winners',t:'Sync’24 E-Sports Competition',d:'Organized by Dharmaraja College',f:'sync'},
+ {r:'Winners',t:'DayDream Sri Lanka',d:'An overnight hackathon and game jam series organized by the Hack Club of USA',f:'daydream'},
+ {r:'Winners',t:'Quizzara’25',d:'Organized by the ICT Society of Kekirawa Central College.',f:'cybernex'},
+ {r:'Winners',t:'Intellecta’25',d:'Organized by the ICT Society of Devi Balika Vidyalaya'},
+ {r:'3rd place',t:'DiscoverY',d:'An inter-school cyberquest competition organized by the Computer Society of Royal College'}
+];
+var ach=document.getElementById('ach');
+wins.forEach(function(w){
+  var r=document.createElement('div');r.className='row'+(w.f?'':' noimg');
+  r.innerHTML='<div class="res">'+w.r+'</div><div><h3>'+w.t+'</h3><p>'+w.d+'</p></div>';
+  if(w.f){var sl=document.createElement('div');sl.className='slot';sl.innerHTML='<span>'+w.t+'</span>';
+    sl.appendChild(pic('img/achievments/'+w.f,w.t,function(){sl.classList.add('loaded');var t=sl.querySelector('span');t&&t.remove()}));r.appendChild(sl)}
+  ach.appendChild(r);
+});
+</script>
 </body>
 </html>
